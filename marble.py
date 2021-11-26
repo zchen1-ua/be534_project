@@ -51,12 +51,12 @@ def main():
     if args.first:
         while n_me > 0  and n_op > 0:
             n_op, n_me = me_guess(n_op, n_me)
-            while n_me > 0  and n_op > 0:
+            if n_me > 0  and n_op > 0:
                 n_op, n_me = op_guess(n_op, n_me)
     else:
         while n_me > 0  and n_op > 0:
             n_op, n_me = op_guess(n_op, n_me)
-            while n_me > 0  and n_op > 0:
+            if n_me > 0  and n_op > 0:
                 n_op, n_me = me_guess(n_op, n_me)
 
     if n_op <= 0:
@@ -71,7 +71,7 @@ def op_guess(n_op: int, n_me: int):
 
     print(f'You have {n_me} marbles left')
     time.sleep(1)
-    print(f'Your opponent has {n_op} marbles left')
+    print(f'Your opponent has {n_op} marbles left\n')
     time.sleep(1)
 
     bet = input(f'Select a number between 0 and {n_me}: ')
@@ -97,7 +97,7 @@ def me_guess(n_op: int, n_me: int):
 
     print(f'You have {n_me} marbles left')
     time.sleep(1)
-    print(f'Your opponent has {n_op} marbles left')
+    print(f'Your opponent has {n_op} marbles left\n')
     time.sleep(1)
 
     bet = random.choice(range(0, n_op))
@@ -119,7 +119,6 @@ def me_guess(n_op: int, n_me: int):
 
 # --------------------------------------------------
 def guess_right(bet: int, guess: str):
-
     if is_odd(bet) and (guess == "odd"):
         return True
     else:
@@ -128,7 +127,7 @@ def guess_right(bet: int, guess: str):
 
 # --------------------------------------------------
 def is_odd(num: int):
-    if (num % 2) == 0:
+    if (num % 2) == 1:
         return True
     else:
         return False
