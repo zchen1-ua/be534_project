@@ -17,20 +17,20 @@ def get_args():
         description='Rock the Casbah',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
+    parser.add_argument('-p',
+                        '--player',
+                        help='Player\'s name',
+                        metavar='name',
+                        type=str,
+                        default='Player')
+
     parser.add_argument('-n',
                         '--number',
                         help='Number of marbles for each player',
-                        metavar='int',
+                        metavar='number',
                         type=int,
                         choices=[10, 15, 20, 25],
                         default='20')
-
-    parser.add_argument('-i',
-                        '--int',
-                        help='A named integer argument',
-                        metavar='int',
-                        type=int,
-                        default=0)
 
     parser.add_argument('-f',
                         '--first',
@@ -47,7 +47,10 @@ def main():
 
     args = get_args()
     n_me = n_op = args.number
-    
+
+    print(f'Welcome to the game, {args.player}\n')
+    time.sleep(1)
+
     if args.first:
         while n_me > 0  and n_op > 0:
             n_op, n_me = me_guess(n_op, n_me)
@@ -60,9 +63,9 @@ def main():
                 n_op, n_me = me_guess(n_op, n_me)
 
     if n_op <= 0:
-        print('Congratuations! You won the game!')
+        print(f'Congratuations {args.player}! You won the game!')
     elif n_me <= 0:
-        print('Unfortunately, you lost the game.')
+        print(f'Unfortunately, {args.player}, you lost the game.')
 
 
 
