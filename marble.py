@@ -68,7 +68,6 @@ def main():
         print(f'Unfortunately, {args.player}, you lost the game.')
 
 
-
 # --------------------------------------------------
 def op_guess(n_op: int, n_me: int):
 
@@ -119,7 +118,6 @@ def me_guess(n_op: int, n_me: int):
     return (n_op, n_me)
 
 
-
 # --------------------------------------------------
 def guess_right(bet: int, guess: str):
     if is_odd(bet) and (guess == "odd"):
@@ -134,6 +132,7 @@ def is_odd(num: int):
         return True
     else:
         return False
+
 
 # --------------------------------------------------
 if __name__ == '__main__':
