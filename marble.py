@@ -81,7 +81,7 @@ def op_guess(n_op: int, n_me: int):
     bet = int(bet)
     guess = random.choice(['odd', 'even'])
 
-    if (guess == "odd") == is_odd(bet):
+    if guess_right(bet, guess):
         n_op += bet
         n_me -= bet
         print(f'Your opponent guessed it right! You lost {bet} marbles.')
