@@ -2,7 +2,7 @@
 """
 Author : zhuochen <zhuochen@localhost>
 Date   : 2021-11-25
-Purpose: The marble fame (guess even or odd)
+Purpose: The marble game (guess even or odd)
 """
 
 import time
@@ -62,10 +62,11 @@ def main():
             if n_me > 0  and n_op > 0:
                 n_op, n_me = me_guess(n_op, n_me)
 
+    time.sleep(1)
     if n_op <= 0:
-        print(f'Congratuations {args.player}! You won the game!')
+        print(f'\nCongratuations {args.player}! You won the game!')
     elif n_me <= 0:
-        print(f'Unfortunately, {args.player}, you lost the game.')
+        print(f'\nUnfortunately, {args.player}, you lost the game.')
 
 
 # --------------------------------------------------
@@ -119,19 +120,29 @@ def me_guess(n_op: int, n_me: int):
 
 
 # --------------------------------------------------
-def guess_right(bet: int, guess: str):
-    if is_odd(bet) and (guess == "odd"):
-        return True
-    else:
-        return False
+def guess_right(bet: int, guess: str) -> bool: 
+    return is_odd(bet) and (guess == "odd")
+
+
+# --------------------------------------------------
+def test_guess_right() -> None:
+    """ Test guess_right """
+
+    assert guess_right(1, "odd")
+    assert not guess_right(2, "odd")
     
 
 # --------------------------------------------------
-def is_odd(num: int):
-    if (num % 2) == 1:
-        return True
-    else:
-        return False
+def is_odd(n: int) -> bool: 
+    return n % 2 == 1
+
+
+# --------------------------------------------------
+def test_is_odd() -> None:
+    """ Test is_odd """
+
+    assert is_odd(1)
+    assert not is_odd(2)
 
 
 # --------------------------------------------------
