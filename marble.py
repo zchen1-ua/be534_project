@@ -8,6 +8,7 @@ Purpose: The marble game (guess even or odd)
 import time
 import argparse
 import random
+import sys
 
 # --------------------------------------------------
 def get_args():
@@ -77,7 +78,9 @@ def op_guess(n_op: int, n_me: int):
     print(f'Your opponent has {n_op} marbles left\n')
     time.sleep(1)
 
-    bet = input(f'Select a number between 0 and {n_me}: ')
+    bet = input(f'Select a number between 0 and {n_me} (enter \"q\" to quit): ')
+    if bet.strip('\"').lower() == "q":
+        sys.exit('You have quit the game!')
     time.sleep(1)
     bet = int(bet)
     guess = random.choice(['odd', 'even'])
@@ -104,7 +107,9 @@ def me_guess(n_op: int, n_me: int):
     time.sleep(1)
 
     bet = random.choice(range(0, n_op))
-    guess = input('Make a guess between even and odd : ')
+    guess = input('Make a guess between even and odd (enter \"q\" to quit): ')
+    if guess.strip('\"').lower() == "q":
+        sys.exit('You have quit the game!')
     time.sleep(1)
 
     if guess_right(bet, guess):
