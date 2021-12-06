@@ -12,7 +12,7 @@ The objective of the game is to collect all the marbles. This game involves two 
 
 * Player's name `(-p, --player)`
 * The starting number of marbles for both players `(-n, --number)`
-* A boolean flag to choose to guess first '(-f, --first)'
+* A boolean flag to choose to guess first `(-f, --first)`
 
 When run with the `-h|--help` flags, it prints a help message:
 
