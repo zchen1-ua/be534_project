@@ -15,7 +15,7 @@ def get_args():
     """ Get command-line arguments """
 
     parser = argparse.ArgumentParser(
-        description='Rock the Casbah',
+        description='The marble game (guess even or odd)',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
     parser.add_argument('-p',
